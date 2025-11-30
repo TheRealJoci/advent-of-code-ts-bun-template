@@ -8,7 +8,7 @@ export async function solve({ year, day }: { year: number; day: number }) {
   const input = readFileSync(
     new URL(`${getInputPath(year, day)}/input`, import.meta.url).pathname,
     'utf8',
-  );
+  ).trim();
 
   const { solutions } = (await import(
     new URL(`${getSolutionPath(year, day)}/solution.ts`, import.meta.url)
