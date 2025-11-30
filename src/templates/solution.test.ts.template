@@ -1,0 +1,23 @@
+import { describe, test, expect } from 'bun:test';
+import { solutions } from './solution';
+
+const examples = [
+  {
+    input: '',
+    result: '',
+  },
+];
+
+describe('Year {{YEAR}}, Day {{DAY}}', () => {
+  examples.forEach(({ input, result }, i) => {
+    const solution = solutions[i];
+
+    if (typeof solution !== 'function') {
+      throw new Error(`Solution ${i.toString()} is not a function`);
+    }
+
+    test(`Solution ${i.toString()}`, () => {
+      expect(solution(input)).toBe(result);
+    });
+  });
+});
